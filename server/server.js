@@ -165,7 +165,7 @@ let precedenceAxioms = [
   }
 ];
 
-generatedOn: new Date().toLocaleString("en-IN", {
+const dateStr = new Date().toLocaleString("en-IN", {
   timeZone: "Asia/Kolkata",
   day: "2-digit",
   month: "short",
@@ -174,7 +174,7 @@ generatedOn: new Date().toLocaleString("en-IN", {
   minute: "2-digit",
   second: "2-digit",
   hour12: true,
-})
+});
 
 let verificationReports = [
   {
