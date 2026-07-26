@@ -1,0 +1,50 @@
+[
+  {
+    "sutraRef": "6.1.77",
+    "text": "इको यणचि",
+    "transliteration": "iko yaṇ aci",
+    "context": "ik (i, u, ṛ, ḷ)",
+    "condition": "followed by ac (vowel)",
+    "action": "replace ik with corresponding yaṇ (y, v, r, l)",
+    "category": "Sandhi / Phonology",
+    "sourceCommentary": "Kāśikā 6.1.77",
+    "adhyaya": 6, "pada": 1, "sutraNum": 77,
+    "tags": ["phonology", "substitution", "ik-yan"]
+  },
+  {
+    "sutraRef": "6.1.101",
+    "text": "अकः सवर्णे दीर्घः",
+    "transliteration": "akaḥ savarṇe dīrghaḥ",
+    "context": "ak (a, i, u, ṛ, ḷ)",
+    "condition": "followed by savarṇa ak (similar vowel)",
+    "action": "replace both with corresponding dīrgha (long vowel)",
+    "category": "Sandhi / Phonology",
+    "sourceCommentary": "Siddhānta Kaumudī 101",
+    "adhyaya": 6, "pada": 1, "sutraNum": 101,
+    "tags": ["phonology", "dirgha-sandhi"]
+  },
+  {
+    "sutraRef": "6.1.87",
+    "text": "आद्गुणः",
+    "transliteration": "ād guṇaḥ",
+    "context": "a / ā",
+    "condition": "followed by ac (vowel)",
+    "action": "replace both with guṇa vowel (e, o, ar, al)",
+    "category": "Sandhi / Phonology",
+    "sourceCommentary": "Mahābhāṣya 6.1.87",
+    "adhyaya": 6, "pada": 1, "sutraNum": 87,
+    "tags": ["phonology", "guna-sandhi"]
+  },
+  {
+    "sutraRef": "6.1.88",
+    "text": "वृद्धिरेचि",
+    "transliteration": "vṛddhir eci",
+    "context": "a / ā",
+    "condition": "followed by ec (e, ai, o, au)",
+    "action": "replace both with vṛddhi vowel (ai, au)",
+    "category": "Sandhi / Phonology",
+    "sourceCommentary": "Kāśikā 6.1.88",
+    "adhyaya": 6, "pada": 1, "sutraNum": 88,
+    "tags": ["phonology", "vriddhi-sandhi", "apavada"]
+  }
+]
