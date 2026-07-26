@@ -78,12 +78,12 @@ export default function App() {
       .catch(err => console.error("Add rule error:", err));
   };
 
-  const handleGenerateNewReport = (name, ruleSet) => {
-     fetch('https://sastra-rule-precedence.onrender.com/api/reports', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, ruleSet })
-    })
+ const handleGenerateNewReport = (name, ruleSet) => {
+  fetch('/api/reports', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, ruleSet })
+  })
       .then(res => res.json())
       .then(data => {
         if (data.report) {
