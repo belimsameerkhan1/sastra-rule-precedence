@@ -165,17 +165,6 @@ let precedenceAxioms = [
   }
 ];
 
-const dateStr = new Date().toLocaleString("en-IN", {
-  timeZone: "Asia/Kolkata",
-  day: "2-digit",
-  month: "short",
-  year: "numeric",
-  hour: "2-digit",
-  minute: "2-digit",
-  second: "2-digit",
-  hour12: true,
-});
-
 let verificationReports = [
   {
     id: "rep-imported",
@@ -391,9 +380,18 @@ app.get('/api/reports', (req, res) => {
 app.post('/api/reports', (req, res) => {
   const name = req.body.name || "Imported Sūtra Corpus Verification";
   const ruleSet = req.body.ruleSet || "Imported Dataset v1.0";
-  const now = new Date();
-  const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) + ' ' + now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-  
+
+  const dateStr = new Date().toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+
   const newReport = {
     id: `rep-${Date.now()}`,
     name,
@@ -407,6 +405,14 @@ app.post('/api/reports', (req, res) => {
     confluence: 100,
     termination: 100
   };
+
+  verificationReports.unshift(newReport);
+
+  res.status(201).json({
+    message: "Report generated successfully",
+    report: newReport
+  });
+});
 
   verificationReports.unshift(newReport);
   res.status(201).json({ message: "Report generated successfully", report: newReport });
