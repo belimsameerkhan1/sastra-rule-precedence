@@ -205,7 +205,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
       {/* Modal for Report Detail Preview */}
       {selectedReport && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-4 md:p-6 max-h-[90vh] overflow-y-auto"
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-4 md:p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <h3 className="text-base font-bold text-white">{selectedReport.name} Report</h3>
               <button onClick={() => setSelectedReport(null)} className="text-slate-400 hover:text-white">✕</button>
