@@ -7,7 +7,6 @@ import {
   CheckCircle2, 
   FileText, 
   Database, 
-  Settings,
   ShieldCheck,
   UserCheck
 } from 'lucide-react';
