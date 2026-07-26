@@ -111,7 +111,7 @@ export default function App() {
     <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden font-sans">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto pt-16 lg:pt-0">
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
         <main className="flex-1 pb-12">
