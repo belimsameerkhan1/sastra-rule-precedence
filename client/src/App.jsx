@@ -168,14 +168,7 @@ export default function App() {
           {activeTab === 'corpus' && (
             <CorpusView rules={rules} />
           )}
-
-          {activeTab === 'settings' && (
-            <div className="p-6 text-center">
-              <h2 className="text-xl font-bold text-white">
-                System Settings & Scholar Curation
-              </h2>
-            </div>
-          )}
+          
         </main>
       </div>
     </div>
