@@ -10,6 +10,8 @@ import ReportsView from './components/ReportsView';
 import PrecedenceRulesView from './components/PrecedenceRulesView';
 import CorpusView from './components/CorpusView';
 
+const API = "https://sastra-rule-precedence.onrender.com";
+
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [stats, setStats] = useState(null);
@@ -21,29 +23,29 @@ export default function App() {
   const [isVerifying, setIsVerifying] = useState(false);
 
   useEffect(() => {
-    fetch('/api/stats')
+    fetch(`${API}/api/stats`)
       .then(res => res.json())
-      .then(data => setStats(data))
+      .then(setStats)
       .catch(err => console.error("Stats error:", err));
 
-    fetch('/api/rules')
+    fetch(`${API}/api/rules`)
       .then(res => res.json())
-      .then(data => setRules(data))
+      .then(setRules)
       .catch(err => console.error("Rules error:", err));
 
-    fetch('/api/precedence')
+    fetch(`${API}/api/precedence`)
       .then(res => res.json())
-      .then(data => setAxioms(data))
+      .then(setAxioms)
       .catch(err => console.error("Precedence error:", err));
 
-    fetch('/api/conflicts')
+    fetch(`${API}/api/conflicts`)
       .then(res => res.json())
-      .then(data => setConflictsData(data))
+      .then(setConflictsData)
       .catch(err => console.error("Conflicts error:", err));
 
-    fetch('/api/reports')
+    fetch(`${API}/api/reports`)
       .then(res => res.json())
-      .then(data => setReportsList(data))
+      .then(setReportsList)
       .catch(err => console.error("Reports error:", err));
 
     triggerVerification();
@@ -51,7 +53,10 @@ export default function App() {
 
   const triggerVerification = () => {
     setIsVerifying(true);
-    fetch('/api/verify', { method: 'POST' })
+
+    fetch(`${API}/api/verify`, {
+      method: 'POST'
+    })
       .then(res => res.json())
       .then(data => {
         setReport(data);
@@ -64,9 +69,11 @@ export default function App() {
   };
 
   const handleAddRule = (newRule) => {
-   fetch('/api/rules', {
+    fetch(`${API}/api/rules`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(newRule)
     })
       .then(res => res.json())
@@ -78,13 +85,20 @@ export default function App() {
       .catch(err => console.error("Add rule error:", err));
   };
 
- const handleGenerateNewReport = (name, ruleSet) => {
-  fetch('/api/reports', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, ruleSet })
-  })
-      .then(res => res.json())
+  const handleGenerateNewReport = (name, ruleSet) => {
+    fetch(`${API}/api/reports`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, ruleSet })
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        return res.json();
+      })
       .then(data => {
         if (data.report) {
           setReportsList(prev => [data.report, ...prev]);
@@ -95,48 +109,46 @@ export default function App() {
 
   return (
     <div className="flex h-screen bg-slate-950 text-slate-100 overflow-hidden font-sans">
-      {/* Left Sidebar */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
-        {/* Top Navbar & System Workflow */}
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-        {/* View Router */}
         <main className="flex-1 pb-12">
           {activeTab === 'dashboard' && (
-            <DashboardView 
-              stats={stats} 
+            <DashboardView
+              stats={stats}
               onNavigate={setActiveTab}
-              onStartVerification={() => { triggerVerification(); setActiveTab('verifications'); }}
+              onStartVerification={() => {
+                triggerVerification();
+                setActiveTab('verifications');
+              }}
             />
           )}
 
           {activeTab === 'rules' && (
-            <RuleAuthoringView 
+            <RuleAuthoringView
               rules={rules}
               onAddRule={handleAddRule}
-              onNavigateToVerification={() => { triggerVerification(); setActiveTab('verifications'); }}
+              onNavigateToVerification={() => {
+                triggerVerification();
+                setActiveTab('verifications');
+              }}
             />
           )}
 
           {activeTab === 'conflicts' && (
-            <ConflictGraphView 
-              conflictsData={conflictsData}
-            />
+            <ConflictGraphView conflictsData={conflictsData} />
           )}
 
           {activeTab === 'precedence' && (
-            <PrecedenceRulesView 
-              axioms={axioms}
-            />
+            <PrecedenceRulesView axioms={axioms} />
           )}
 
           {activeTab === 'verifications' && (
             <div className="space-y-6">
-              <VerificationResultView 
-                report={report} 
+              <VerificationResultView
+                report={report}
                 onTriggerVerify={triggerVerification}
                 isVerifying={isVerifying}
               />
@@ -147,29 +159,21 @@ export default function App() {
           )}
 
           {activeTab === 'reports' && (
-            <ReportsView 
+            <ReportsView
               reports={reportsList}
               onGenerateNewReport={handleGenerateNewReport}
             />
           )}
 
           {activeTab === 'corpus' && (
-            <CorpusView 
-              rules={rules}
-            />
+            <CorpusView rules={rules} />
           )}
 
           {activeTab === 'settings' && (
-            <div className="p-6 text-center space-y-4">
-              <h2 className="text-xl font-bold text-white">System Settings & Scholar Curation</h2>
-              <div className="max-w-md mx-auto p-6 bg-slate-900 border border-slate-800 rounded-2xl text-xs text-slate-400 space-y-3">
-                <p>Configured for Python 3.11 verification core with Z3 SMT solver and bounded Church-Rosser confluence checker.</p>
-                <div className="p-3 bg-slate-950 rounded-xl text-slate-300 font-mono text-[11px] text-left">
-                  <div>ENGINE_VERSION: 1.0.0-panini</div>
-                  <div>REST_API: http://localhost:5000</div>
-                  <div>PARIBHASA_MODE: Strict Commentarial</div>
-                </div>
-              </div>
+            <div className="p-6 text-center">
+              <h2 className="text-xl font-bold text-white">
+                System Settings & Scholar Curation
+              </h2>
             </div>
           )}
         </main>
