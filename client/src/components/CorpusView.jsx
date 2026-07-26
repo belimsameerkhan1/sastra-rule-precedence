@@ -14,10 +14,10 @@ export default function CorpusView({ rules }) {
   });
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       <div>
         <div className="text-xs text-indigo-400 font-medium">Corpus › Digitized Sūtra-pāṭha Datasets</div>
-        <h2 className="text-xl font-bold text-white">Śāstra Rule Corpus</h2>
+        <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white">Śāstra Rule Corpus</h2>
         <p className="text-xs text-slate-400 mt-1">Browse, search, and inspect digitized sūtras from Pāṇini's Aṣṭādhyāyī</p>
       </div>
 
@@ -34,12 +34,12 @@ export default function CorpusView({ rules }) {
           />
         </div>
 
-        <div className="flex items-center space-x-3 text-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-xs w-full sm:w-auto">
           <span className="text-slate-400">Filter Adhyaya:</span>
           <select 
             value={selectedAdhyaya}
             onChange={(e) => setSelectedAdhyaya(e.target.value)}
-            className="px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-white font-semibold focus:outline-none"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-white font-semibold focus:outline-none"
           >
             <option value="All">All Adhyāyas (1-8)</option>
             {[1,2,3,4,5,6,7,8].map(a => (
@@ -50,21 +50,21 @@ export default function CorpusView({ rules }) {
       </div>
 
       {/* Grid of Rule Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredRules.map((r) => (
-          <div key={r.id} className="p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+          <div key={r.id} className="p-4 md:p-5 rounded-xl bg-slate-900 border border-slate-800 space-y-3 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                 <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
                   {r.sutraRef}
                 </span>
                 <span className="text-[10px] text-slate-400 font-semibold">{r.category}</span>
               </div>
-              <h3 className="text-lg font-bold text-white sanskrit-text">{r.text}</h3>
+              <h3 className="text-base md:text-lg font-bold text-white sanskrit-text break-words">{r.text}</h3>
               <p className="text-xs text-slate-300 font-serif italic mt-0.5">{r.transliteration}</p>
             </div>
 
-            <div className="space-y-2 text-xs pt-2 border-t border-slate-800/80">
+            <div className="space-y-2 text-xs pt-3 border-t border-slate-800/80 break-words">
               <div className="text-slate-400"><strong className="text-slate-300">Context:</strong> {r.context}</div>
               <div className="text-slate-400"><strong className="text-slate-300">Action:</strong> {r.action}</div>
               <div className="text-slate-400"><strong className="text-slate-300">Commentary:</strong> {r.sourceCommentary}</div>
