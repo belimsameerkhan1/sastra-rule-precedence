@@ -30,8 +30,8 @@ export default function DashboardView({ stats, onNavigate, onStartVerification }
         </div>
         <button 
           onClick={onStartVerification}
-          className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium text-xs flex items-center space-x-2 shadow-lg shadow-indigo-500/20 self-start md:self-auto"
-        >
+          className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium text-xs flex items-center space-x-2 shadow-lg shadow-indigo-500/20 self-start md:self-auto">
+
           <Plus className="w-4 h-4" />
           <span>+ New Verifier</span>
         </button>
@@ -39,7 +39,7 @@ export default function DashboardView({ stats, onNavigate, onStartVerification }
 
       {/* 4 Top Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-4"
+        <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
             <BookOpen className="w-6 h-6" />
           </div>
@@ -175,22 +175,22 @@ export default function DashboardView({ stats, onNavigate, onStartVerification }
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               <button 
                 onClick={() => onNavigate('rules')}
-                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5"
-              >
+                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5">
+
                 <Upload className="w-4 h-4 text-indigo-400" />
                 <span className="text-[10px] font-medium text-slate-200">Import Rules</span>
               </button>
               <button 
                 onClick={() => onNavigate('rules')}
-                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5"
-              >
+                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5">
+
                 <Plus className="w-4 h-4 text-purple-400" />
                 <span className="text-[10px] font-medium text-slate-200">Create Rule</span>
               </button>
               <button 
                 onClick={onStartVerification}
-                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5"
-              >
+                className="p-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-center transition-colors border border-slate-700 flex flex-col items-center gap-1.5">
+
                 <Play className="w-4 h-4 text-emerald-400" />
                 <span className="text-[10px] font-medium text-slate-200">Run Verification</span>
               </button>
