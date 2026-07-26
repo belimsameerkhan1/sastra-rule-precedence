@@ -53,7 +53,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
   return (
     <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-20 px-4 md:px-6 py-4">
       {/* Top Banner with 4 feature cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
+      <div className="hidden lg:grid grid-cols-4 gap-3 mb-4">
         {topCards.map((card) => {
           const Icon = card.icon;
           return (
@@ -77,7 +77,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       </div>
 
       {/* Interactive System Workflow Bar */}
-      <div className="bg-slate-950/60 rounded-xl p-2 border border-slate-800/80 overflow-x-auto">
+      <div className="hidden lg:block bg-slate-950/60 rounded-xl p-2 border border-slate-800/80 overflow-x-auto">
         <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2">System Workflow</span>
         <div className="flex items-center gap-1 min-w-max">
           {workflowSteps.map((step, idx) => (
