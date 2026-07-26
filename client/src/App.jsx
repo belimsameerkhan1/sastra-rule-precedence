@@ -64,7 +64,7 @@ export default function App() {
   };
 
   const handleAddRule = (newRule) => {
-    fetch('https://sastra-rule-precedence.onrender.com/api/reports', {
+   fetch('/api/rules', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newRule)
@@ -79,7 +79,7 @@ export default function App() {
   };
 
   const handleGenerateNewReport = (name, ruleSet) => {
-    fetch('/api/reports', {
+     fetch('https://sastra-rule-precedence.onrender.com/api/reports', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, ruleSet })
