@@ -36,15 +36,13 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
           <button 
             onClick={onTriggerVerify}
             disabled={isVerifying}
-            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs flex items-center space-x-2 border border-slate-700 disabled:opacity-50"
-          >
+            className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs flex items-center space-x-2 border border-slate-700 disabled:opacity-50">
             <RefreshCw className={`w-3.5 h-3.5 ${isVerifying ? 'animate-spin' : ''}`} />
             <span>{isVerifying ? 'Verifying...' : 'Re-verify Rule Set'}</span>
           </button>
           <button 
             onClick={handleDownload}
-            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs flex items-center space-x-2 shadow-lg shadow-indigo-600/20"
-          >
+            className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs flex items-center space-x-2 shadow-lg shadow-indigo-600/20">
             <Download className="w-3.5 h-3.5" />
             <span>Download Report</span>
           </button>
