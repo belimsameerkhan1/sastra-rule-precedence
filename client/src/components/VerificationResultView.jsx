@@ -25,14 +25,14 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       {/* Top Breadcrumb & Action Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="text-xs text-indigo-400 font-medium">Verifications › Aṣṭādhyāyī Set - 3.2</div>
-          <h2 className="text-xl font-bold text-white">Verification Result</h2>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white">Verification Result</h2>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <button 
             onClick={onTriggerVerify}
             disabled={isVerifying}
@@ -69,7 +69,7 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
             </p>
           </div>
         </div>
-        <div className="flex items-center space-x-6 text-xs text-slate-400 border-t md:border-t-0 md:border-l border-slate-800 pt-3 md:pt-0 md:pl-6 shrink-0">
+        <div className="flex flex-wrap gap-6 text-xs text-slate-400 border-t md:border-t-0 md:border-l border-slate-800 pt-3 md:pt-0 md:pl-6 shrink-0">
           <div>
             <div className="text-[10px] uppercase font-bold text-slate-500">Verified On</div>
             <div className="font-semibold text-slate-200">{report?.summary?.generatedAt || 'Jul 14, 2026 10:24 AM'}</div>
@@ -82,7 +82,7 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
       </div>
 
       {/* Summary Scorecard Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
           <div className="text-2xl font-black text-white">{report?.summary?.totalRulesVerified || 8564}</div>
           <div className="text-[11px] text-slate-400 font-semibold mt-1">Rules Verified</div>
@@ -106,7 +106,7 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
       </div>
 
       {/* Sub Tabs Navigation */}
-      <div className="border-b border-slate-800 flex space-x-6">
+      <div className="border-b border-slate-800 flex overflow-x-auto whitespace-nowrap gap-6">
         {[
           { id: 'summary', label: 'Conflict Summary' },
           { id: 'overview', label: 'Derivation Overview' },
@@ -134,13 +134,13 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
           <div className="p-6 rounded-xl bg-slate-900 border border-slate-800 flex flex-col justify-between">
             <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider mb-4">Conflict Resolution Breakdown</h3>
             <div className="flex items-center justify-center relative py-4">
-              <svg className="w-48 h-48 transform -rotate-90">
+              <svg className="w-36 h-36 md:w-48 md:h-48 transform -rotate-90">
                 <circle cx="96" cy="96" r="72" stroke="#1e293b" strokeWidth="18" fill="transparent" />
                 <circle cx="96" cy="96" r="72" stroke="#10b981" strokeWidth="18" fill="transparent" 
                   strokeDasharray={`${100 * 4.52} 452`} strokeDashoffset="0" />
               </svg>
               <div className="absolute flex flex-col items-center">
-                <span className="text-3xl font-black text-white">2876</span>
+                <span className="text-2xl md:text-3xl font-black text-white">2876</span>
                 <span className="text-[10px] text-slate-400 uppercase font-bold">Total Conflicts</span>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
       )}
 
       {/* Bottom Certification Footer */}
-      <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-xs text-slate-400">
+      className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row gap-3 sm:items-center justify-between text-xs text-slate-400"
         <div className="flex items-center space-x-2">
           <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>No precedence violations detected. The rule set is consistent with the selected paribhāṣā.</span>
