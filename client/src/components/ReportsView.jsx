@@ -55,8 +55,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
 
         <button 
           onClick={() => setIsGeneratingModal(true)}
-          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20"
-        >
+          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20">
           <Plus className="w-4 h-4" />
           <span>+ Generate Report for Imported File</span>
         </button>
@@ -192,8 +191,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
               <button 
                 type="submit"
                 disabled={isGenerating}
-                className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 disabled:opacity-50"
-              >
+                className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20 disabled:opacity-50">
                 {isGenerating ? <RefreshCw className="w-4 h-4 animate-spin" /> : <CheckCircle2 className="w-4 h-4" />}
                 <span>{isGenerating ? 'Running Verification & Building Certificate...' : 'Generate & Audit Report'}</span>
               </button>
@@ -230,8 +228,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
             </div>
             <button 
               onClick={() => { handleDownloadReport(selectedReport); setSelectedReport(null); }}
-              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2"
-            >
+              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2">
               <Download className="w-4 h-4" /> Download Certificate
             </button>
           </div>
