@@ -75,6 +75,30 @@ export default function Navbar({ activeTab, setActiveTab }) {
           );
         })}
       </div>
+      {/* Mobile Quick Actions */}
+<div className="lg:hidden mb-4 overflow-x-auto">
+  <div className="flex gap-3 min-w-max">
+
+    {topCards.map((card) => {
+      const Icon = card.icon;
+
+      return (
+        <button
+          key={card.id}
+          onClick={() => setActiveTab(card.id)}
+          className={`flex items-center gap-2 px-4 py-3 rounded-xl border bg-gradient-to-br whitespace-nowrap transition-all ${card.color}
+            ${activeTab === card.id ? "ring-2 ring-indigo-500" : ""}`}
+        >
+          <Icon className="w-4 h-4" />
+          <span className="text-xs font-bold text-white">
+            {card.title}
+          </span>
+        </button>
+      );
+    })}
+
+  </div>
+</div>
 
       {/* Interactive System Workflow Bar */}
       <div className="hidden lg:block bg-slate-950/60 rounded-xl p-2 border border-slate-800/80 overflow-x-auto">
