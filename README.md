@@ -83,45 +83,86 @@ Backend → Render
 📂 Folder Structure
 
 sastra-rule-precedence/
+
 │
+
 ├── client/                         # React Frontend
+
 │   ├── public/
+
 │   ├── src/
+
 │   │   ├── components/
+
 │   │   │   ├── DashboardView.jsx
+
 │   │   │   ├── RuleAuthoringView.jsx
+
 │   │   │   ├── ConflictGraphView.jsx
+
 │   │   │   ├── VerificationResultView.jsx
+
 │   │   │   ├── ReportsView.jsx
+
 │   │   │   ├── CorpusView.jsx
+
 │   │   │   ├── Navbar.jsx
+
 │   │   │   └── Sidebar.jsx
+
 │   │   │
+
 │   │   ├── services/
+
 │   │   │   └── api.js
+
 │   │   │
+
 │   │   ├── App.jsx
+
 │   │   └── main.jsx
+
 │   │
+
 │   ├── package.json
+
 │   └── vite.config.js
+
 │
+
 ├── server/
+
 │   ├── routes/
+
 │   ├── controllers/
+
 │   ├── middleware/
+
 │   ├── package.json
+
 │   └── server.js
+
 │
+
 ├── engine/
+
+
 │   ├── engine.py
+
 │   ├── parser.py
+
 │   ├── verifier.py
+
 │   ├── precedence.py
+
 │   ├── conflict_detector.py
+
 │   └── requirements.txt
+
 │
+
 └── README.md
+
 
 🚀 Setup & Installation
 Prerequisites
