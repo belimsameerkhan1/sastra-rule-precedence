@@ -225,6 +225,6 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
     SHA-256: 8f9b2c...e14
   </span>
 
-    </div>  
+    </div>   {/*
   );
 }
