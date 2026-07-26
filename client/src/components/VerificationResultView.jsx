@@ -212,19 +212,20 @@ export default function VerificationResultView({ report, onTriggerVerify, isVeri
         </div>
       )}
 
-      {/* Bottom Certification Footer */}
-<div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row gap-3 sm:items-center justify-between text-xs text-slate-400">
-  <div className="flex items-center space-x-2">
-    <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-    <span>
-      No precedence violations detected. The rule set is consistent with the selected paribhāṣā.
-    </span>
-  </div>
+       {/* Bottom Certification Footer */}
+      <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col sm:flex-row gap-3 sm:items-center justify-between text-xs text-slate-400">
+        <div className="flex items-center space-x-2">
+          <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>
+            No precedence violations detected. The rule set is consistent with the selected paribhāṣā.
+          </span>
+        </div>
 
-  <span className="text-[11px] font-mono text-slate-500">
-    SHA-256: 8f9b2c...e14
-  </span>
+        <span className="text-[11px] font-mono text-slate-500">
+          SHA-256: 8f9b2c...e14
+        </span>
+      </div>
 
-    </div>   {/*
+    </div>
   );
 }
