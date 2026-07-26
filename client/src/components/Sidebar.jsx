@@ -21,7 +21,6 @@ export default function Sidebar({ activeTab, setActiveTab }) {
     { id: 'verifications', label: 'Verifications', icon: CheckCircle2 },
     { id: 'reports', label: 'Reports', icon: FileText },
     { id: 'corpus', label: 'Corpus', icon: Database },
-    { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
   return (
