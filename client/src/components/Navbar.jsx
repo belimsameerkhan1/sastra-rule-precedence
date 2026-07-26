@@ -51,16 +51,16 @@ export default function Navbar({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-20 px-6 py-4">
+    <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-20 px-4 md:px-6 py-4">
       {/* Top Banner with 4 feature cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mb-4">
         {topCards.map((card) => {
           const Icon = card.icon;
           return (
             <button
               key={card.id}
               onClick={() => setActiveTab(card.id)}
-              className={`p-3 rounded-xl border bg-gradient-to-br text-left transition-all hover:scale-[1.01] ${card.color} ${
+              className={`p-3 md:p-4 rounded-xl border bg-gradient-to-br text-left transition-all hover:scale-[1.01] ${card.color} ${
                 activeTab === card.id ? 'ring-2 ring-indigo-500' : ''
               }`}
             >
@@ -68,18 +68,18 @@ export default function Navbar({ activeTab, setActiveTab }) {
                 <div className="p-1.5 rounded-lg bg-slate-950/40">
                   <Icon className="w-4 h-4" />
                 </div>
-                <h3 className="text-xs font-bold text-white uppercase tracking-wide">{card.title}</h3>
+                <h3 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wide">{card.title}</h3>
               </div>
-              <p className="text-[11px] text-slate-300 line-clamp-2 leading-tight">{card.subtitle}</p>
+              <p className="text-[10px] sm:text-[11px] text-slate-300 line-clamp-2 leading-tight">{card.subtitle}</p>
             </button>
           );
         })}
       </div>
 
       {/* Interactive System Workflow Bar */}
-      <div className="bg-slate-950/60 rounded-xl p-2 border border-slate-800/80 flex items-center justify-between text-xs overflow-x-auto">
-        <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2 shrink-0">System Workflow</span>
-        <div className="flex items-center space-x-1 shrink-0">
+      <div className="bg-slate-950/60 rounded-xl p-2 border border-slate-800/80 overflow-x-auto">
+        <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider px-2">System Workflow</span>
+        <div className="flex items-center gap-1 min-w-max">
           {workflowSteps.map((step, idx) => (
             <React.Fragment key={idx}>
               <button
