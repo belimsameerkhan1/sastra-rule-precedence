@@ -45,17 +45,17 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       {/* Top Banner Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold text-white">Reports</h2>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white">Reports</h2>
           <p className="text-xs text-slate-400">Generate and manage formal verification reports for your sūtra corpora</p>
         </div>
 
         <button 
           onClick={() => setIsGeneratingModal(true)}
-          className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center space-x-2 shadow-lg shadow-indigo-600/20 self-start sm:self-auto"
+          className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/20"
         >
           <Plus className="w-4 h-4" />
           <span>+ Generate Report for Imported File</span>
@@ -63,7 +63,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
       </div>
 
       {/* Sub Tabs: All Reports, My Reports, Shared With Me */}
-      <div className="border-b border-slate-800 flex space-x-6">
+      <div className="border-b border-slate-800 flex overflow-x-auto whitespace-nowrap gap-6">
         {[
           { id: 'all', label: 'All Reports' },
           { id: 'my', label: 'My Reports' },
@@ -84,7 +84,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
       </div>
 
       {/* Reports Table */}
-      <div className="bg-slate-900 rounded-2xl border border-slate-800 p-5 overflow-hidden">
+      <div className="bg-slate-900 rounded-2xl border border-slate-800 p-3 md:p-5 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead className="bg-slate-950 text-slate-400 uppercase text-[10px]">
@@ -130,7 +130,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
                   <td className="p-3.5 text-right space-x-2">
                     <button 
                       onClick={() => setSelectedReport(r)}
-                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200"
+                      className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200"
                       title="View Details"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -205,25 +205,25 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
       {/* Modal for Report Detail Preview */}
       {selectedReport && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-4">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-4 md:p-6 max-h-[90vh] overflow-y-auto"
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <h3 className="text-base font-bold text-white">{selectedReport.name} Report</h3>
               <button onClick={() => setSelectedReport(null)} className="text-slate-400 hover:text-white">✕</button>
             </div>
             <div className="space-y-3 text-xs">
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-slate-400">Rule Set:</span>
                 <span className="font-mono text-white">{selectedReport.ruleSet}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-slate-400">Status:</span>
                 <span className="font-bold text-emerald-400">{selectedReport.status}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-slate-400">Rules Verified:</span>
                 <span className="font-bold text-white">{selectedReport.rulesVerified}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-slate-400">Confluence Rating:</span>
                 <span className="font-bold text-indigo-400">{selectedReport.confluence}%</span>
               </div>
@@ -239,7 +239,7 @@ export default function ReportsView({ reports, onGenerateNewReport }) {
       )}
 
       {/* Bottom Feature Badges */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
           <div className="text-indigo-400 font-bold text-xs mb-1">PDF / HTML</div>
           <div className="text-[10px] text-slate-400">Export Formats</div>
