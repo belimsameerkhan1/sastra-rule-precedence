@@ -414,10 +414,6 @@ app.post('/api/reports', (req, res) => {
   });
 });
 
-  verificationReports.unshift(newReport);
-  res.status(201).json({ message: "Report generated successfully", report: newReport });
-});
-
 app.listen(PORT, () => {
   console.log(`Śāstra Rule Precedence REST API running on http://localhost:${PORT}`);
 });
