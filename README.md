@@ -164,108 +164,239 @@ sastra-rule-precedence/
 └── README.md
 
 
+
 🚀 Setup & Installation
+
 Prerequisites
+
 Node.js v18+
+
 Python 3.10+
+
 pip
+
 npm
+
 1️⃣ Clone Repository
+
 git clone https://github.com/belimsameerkhan1//sastra-rule-precedence.git
 
+
 cd sastra-rule-precedence
+
 2️⃣ Backend Setup
+
 cd server
 
+
+
 npm install
+
 Create a .env
+
 3️⃣ Python Verification Engine
+
 cd engine
 
+
+
 pip install -r requirements.txt
+
 Run
+
 python engine.py
+
 4️⃣ Frontend Setup
+
 cd client
+
 
 npm install
 
+
+
 npm run dev
+
+
 Runs on
+
 http://localhost:5173
+
+
+
 ⚙️ Deployment
+
+
+
 https://sastra-rule-precedence.vercel.app/
+
+
+
 Backend
+
+
+
 Render
+
 https://sastra-rule-precedence.onrender.com
+
+
+
 📊 Modules
+
+
+
 Dashboard
+
 Rule Authoring
+
+
 Conflict Detection
+
+
+
 Verification Engine
+
+
+
 Reports
+
 Corpus Explorer
 
+
+
 🔍 Verification Workflow
+
 Import Rule Dataset
+
+      
         │
+        
         ▼
-Parsing & Normalization
+Parsing 
+& Normalization
+
         │
+        
         ▼
-Conflict Detection
+Conflict
+Detection
+
         │
+        
         ▼
-Precedence Resolution
+Preceden
+ce Resolution
+
         │
+        
         ▼
 Rewrite Simulation
+        
         │
+        
         ▼
 Confluence Verification
+        
         │
         ▼
-Termination Analysis
+Terminat
+ion Analysis
         │
+
         ▼
 Verification Result
+        
         │
         ▼
-Generate Report
+Generate
+Report
+
 
 📈 Features Implemented
+
 ✅ Rule Import
+
+
+
 ✅ Rule Authoring
+
+
+
 ✅ Conflict Detection
+
 ✅ Conflict Graph
+
+
+
 ✅ Verification Dashboard
+
+
+
 ✅ Reports Module
+
+
+
 ✅ Corpus Statistics
+
+
+
 ✅ Responsive Design
+
 ✅ REST API Integration
+
 ✅ Render Deployment
+
 ✅ Vercel Deployment
 
+
+
 🎯 Future Enhancements
+
 Real Sanskrit parser integration
+
 Graph database visualization
+
 Multi-user authentication
+
 Version-controlled rule repository
+
 AI-assisted conflict explanation
+
 Export PDF reports
+
 Interactive derivation trees
+
+
 
 📜 Academic Context
 
-This project was developed as part of an Indian Knowledge Systems (IKS) initiative focusing on the computational analysis of Pāṇinian Sanskrit grammar. It demonstrates how classical grammatical principles and Paribhāṣā (meta-rules) can be modeled, verified, and analyzed using modern software engineering techniques.
+
+
+This project was developed as part of an Indian Knowledge Systems (IKS) initiative focusing on the computational analysis of Pāṇinian Sanskrit grammar. It demonstrates how classical grammatical principles and Paribhāṣā 
+(meta-rules) can be modeled, verified, and analyzed using modern software engineering techniques.
+
+
 
 📄 License
 
+
+
 This project is intended for educational and research purposes.
+
 👨‍💻 Developed By
+
+
 
 Belim Sameer Khan
 
+
+
 B.Sc. Computer Science
 
+
+
 Indian Knowledge Systems (IKS) Project
+
+
+
