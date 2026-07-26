@@ -66,16 +66,16 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 md:p-6 space-y-6">
       {/* Top Header & Import Mode Switcher */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="text-xs text-indigo-400 font-medium">Rules › Ingestion & Authoring</div>
-          <h2 className="text-xl font-bold text-white">Rule Ingestion & Import</h2>
+          <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white">Rule Ingestion & Import</h2>
         </div>
 
         {/* Input Mode Selector */}
-        <div className="flex items-center space-x-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
+        <div className="flex flex-col sm:flex-row gap-2 bg-slate-900 p-1 rounded-xl border border-slate-800">
           <button
             onClick={() => setActiveTab('manual')}
             className={`px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
@@ -102,7 +102,7 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
 
       {/* Mode 1: Batch PDF / Document Import */}
       {activeTab === 'import' && (
-        <div className="bg-slate-900 rounded-2xl border border-slate-800 p-8 space-y-6">
+        <div className="bg-slate-900 rounded-2xl border border-slate-800 p-4 md:p-8 space-y-6">
           <div className="max-w-2xl mx-auto text-center space-y-2">
             <h3 className="text-lg font-bold text-white">Import Sūtra Rule-Set Documents</h3>
             <p className="text-xs text-slate-400">
@@ -111,7 +111,7 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
           </div>
 
           {/* Drag & Drop Upload Dropzone */}
-          <div className="max-w-xl mx-auto border-2 border-dashed border-slate-700 hover:border-indigo-500 rounded-2xl p-8 text-center bg-slate-950/60 transition-all">
+          <div className="max-w-xl mx-auto border-2 border-dashed border-slate-700 hover:border-indigo-500 rounded-2xl p-5 md:p-8 text-center bg-slate-950/60 transition-all">
             <input 
               type="file" 
               accept=".pdf,.json,.csv,.txt"
@@ -200,7 +200,7 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
       {/* Mode 2: Manual Authoring Form */}
       {activeTab === 'manual' && (
         <form onSubmit={handleSave} className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2 space-y-5 bg-slate-900 p-6 rounded-xl border border-slate-800">
+          <div className="lg:col-span-2 space-y-5 bg-slate-900 p-4 md:p-6 rounded-xl border border-slate-800">
             <div className="flex items-center justify-between border-b border-slate-800 pb-3">
               <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider">Manual Sūtra Authoring Form</h3>
               {savedSuccess && (
@@ -314,7 +314,7 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
             </button>
           </div>
 
-          <div className="space-y-5 bg-slate-900 p-6 rounded-xl border border-slate-800">
+          <div className="space-y-5 bg-slate-900 p-4 md:p-6 rounded-xl border border-slate-800">
             <div>
               <label className="block text-xs font-bold text-indigo-400 uppercase tracking-wider mb-2">Linked Paribhāṣā Metarule</label>
               <select 
@@ -334,13 +334,13 @@ export default function RuleAuthoringView({ rules, onAddRule, onNavigateToVerifi
 
       {/* Active Corpus Rules Table */}
       <div className="bg-slate-900 rounded-xl border border-slate-800 p-5">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <h3 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-indigo-400" /> Active Verification Corpus ({rules.length} Rules)
           </h3>
           <button 
             onClick={onNavigateToVerification}
-            className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 shadow-md shadow-emerald-600/20"
+            className="w-full sm:w-auto px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 shadow-md shadow-emerald-600/20"
           >
             <Play className="w-3.5 h-3.5" /> Run Verification on Corpus →
           </button>
