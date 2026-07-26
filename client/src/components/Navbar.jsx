@@ -76,8 +76,8 @@ export default function Navbar({ activeTab, setActiveTab }) {
         })}
       </div>
       {/* Mobile Quick Actions */}
-<div className="lg:hidden mb-4 overflow-x-auto">
-  <div className="flex gap-3 min-w-max">
+<div className="lg:hidden mb-2 overflow-x-auto no-scrollbar">
+  <div className="flex gap-2 min-w-max px-1">
 
     {topCards.map((card) => {
       const Icon = card.icon;
