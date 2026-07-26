@@ -51,8 +51,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <header className="bg-red-600 p-10">    
-        <h1 className="text-white text-3xl">TEST NAVBAR</h1>
+   <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-20 px-4 md:px-6 py-4">
       {/* Top Banner with 4 feature cards */}
       <div className="hidden lg:grid grid-cols-4 gap-3 mb-4">
         {topCards.map((card) => {
